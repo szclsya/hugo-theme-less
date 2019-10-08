@@ -1,0 +1,17 @@
+{{ define "banner-image" }}
+{{ end }}
+
+{{ define "banner" }}
+<h1>{{ .Site.Title }}</h1>
+<h2>{{ .Site.Params.Description }}</h2>
+{{ end }}
+
+{{ define "header" }}
+<!-- Index page don't need back -->
+{{ end }}
+
+{{ define "content" }}
+<article>
+  {{ .Content }}
+</article>
+{{ end }}

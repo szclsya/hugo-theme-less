@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+      {{- block "title" . -}}
+      {{ .Site.Title }}
+      {{- end -}}
+    </title>
+
+    {{- block "meta" . -}}
+    <meta property="og:title" content="{{ .Site.Title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:description" content="{{ .Site.Params.Description }}" />
+    <meta name="description" content="{{ .Site.Title }}">
+    <meta name="author" content="{{ .Site.Params.Author }}">
+    <meta name="theme-color" content="#2c2a2a">
+    {{- end -}}
+
+    <link rel="stylesheet" href="{{ .Site.Params.staticFileBaseUrl }}/fonts/fonts.css">
+    {{- $sass := resources.Get "css/main.sass" -}}
+    {{- $css := $sass | resources.ToCSS | resources.PostCSS (dict "use" "autoprefixer") | resources.Minify -}}
+    <link rel="stylesheet" href="{{ $css.Permalink }}">
+
+    {{- block "stylesheet" . -}}
+    {{- end -}}
+
+  </head>
+
+  <body>
+    <header>
+      {{- block "header" . -}}
+      <a name="top" onclick="window.history.back()">
+	<img class="icon-white" src="/icons/md-arrow-back.svg" alt="Back">
+      </a>
+      <a href="/">
+	<img class="icon-white" src="/icons/md-home.svg" alt="Home">
+      </a>
+      {{- end -}}
+      <a class="push" href="/posts">
+	<img class="icon-white" src="/icons/md-bookmarks.svg" alt="Posts">
+	<span>{{ i18n "posts" }}</span>
+      </a>
+      <a href="/about">
+	<img class="icon-white" src="/icons/md-information-circle.svg" alt="About">
+	<span>{{ i18n "about" }}</span>
+      </a>
+      <a href="/links">
+	<img class="icon-white" src="/icons/md-link.svg" alt="Links">
+	<span>{{ i18n "links" }}</span>
+      </a>
+    </header>
+
+    <div id="banner">
+      {{- block "banner-image" . -}}
+      {{- end -}}
+      <div id="banner-text">
+	{{- block "banner" . -}}
+	{{- end -}}
+      </div>
+    </div>
+
+    <div id="content-container">
+      <main>
+	{{- block "content" . -}}
+	{{- end -}}
+      </main>
+
+      <footer>
+	{{- block "footer" . -}}
+	<p>
+	  {{ i18n "footer-note" }}
+	</p>
+	{{- end -}}
+      </footer>
+    </div>
+
+    <div id="action-botton">
+      <div class="action-wrapper">
+	<div class="action meter">
+	  <span id="progress_meter">JS</span>
+	</div>
+	<a href="#top" class="action icon-white">
+	  <img src="/icons/md-arrow-up.svg" alt="Top">
+	</a>
+      </div>
+    </div>
+
+  </body>
+
+  {{- $mainJs := resources.Get "js/main.js" -}}
+  {{- $mainMinJs := $mainJs | resources.Minify -}}
+  <script type="text/javascript" src="{{ $mainMinJs.Permalink }}" defer></script>
+</html>

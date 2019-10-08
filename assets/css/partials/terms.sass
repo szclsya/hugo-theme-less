@@ -1,0 +1,36 @@
+#terms
+  .pages
+    overflow: hidden
+  .hidden
+    height: 0
+
+  .one-tag
+    display: block
+    .title-bar
+      margin: .5rem 0
+      display: flex
+      align-items: center
+      border-bottom: 1px solid #bdbdbd
+      & > *
+        margin-right: 0.5rem
+      .title
+        font-size: 1.3rem
+        font-family: $serifFonts
+      .count
+        font-weight: 300
+      .term-button
+        font-weight: 800
+        font-family: $monospaceFonts
+      img
+        height: 1.1rem
+        @media (prefers-color-scheme: dark)
+          filter: invert(100%)
+    .page
+      position: relative
+      overflow: hidden
+    .time
+      display: inline-block
+      width: 5.4rem
+      color: #9e9e9e
+      font-family: $monospaceFonts
+      font-size: .9em

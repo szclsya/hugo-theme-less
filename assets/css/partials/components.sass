@@ -1,0 +1,72 @@
+.button
+  color: #424242
+
+  display: inline-block
+  height: 100%
+  padding: .2rem .5rem
+  font-size: 70%
+  text-decoration: none
+  background-color: #eceff1
+  font-family: $sansSerifFonts
+  margin-right: .5rem
+  cursor: pointer
+  transition: all .2s
+  &:hover
+    background-color: #616161
+    color: #eceff1
+
+.poem
+  text-align: center
+  line-height: 2
+  font-family: $monospaceFonts
+
+.license
+  background-color: map-get($colors, "light-background")
+  @media (prefers-color-scheme: dark)
+    background-color: map-get($darks, "light-background")
+
+  margin: 1rem
+  text-align: center
+  font-size: .9rem
+  padding: 2rem
+
+figure
+  @media screen and (max-width: 700px)
+    max-width: 100%
+    margin: 0
+  max-width: 90%
+  img
+    max-width: 100%
+    display: block
+    margin: 0 auto
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2)
+  figcaption
+    text-align: center
+    color: map-get($colors, "meta")
+    @media (prefers-color-scheme: dark)
+      color: map-get($darks, "meta")
+    font-size: .8rem
+    margin-top: .2rem
+
+#toc
+  background-color: map-get($colors, "light-background")
+  border-top: 1px solid #ccc
+  border-bottom: 1px solid #ccc
+  @media (prefers-color-scheme: dark)
+    background-color: map-get($darks, "light-background")
+    border: none
+
+  float: right
+  width: 20rem
+  max-width: 100%
+  margin: 0 0 2rem 1rem
+  @media screen and (max-width: 650px)
+    width: 100%
+  .title
+    text-align: center
+    font-family: $serifFonts
+    font-weight: 600
+    margin: 1rem 0 0 0
+  ul
+    list-style-type: decimal
+    font-size: .9rem

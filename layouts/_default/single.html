@@ -1,0 +1,70 @@
+{{- define "title" -}}
+{{ .Title }} - {{ .Site.Title }}
+{{- end -}}
+
+{{- define "meta" -}}
+<meta name="description" content="{{ .Page.Description }}">
+<meta name="author" content="{{ .Site.Params.Author }}">
+<meta name="theme-color" content="#2c2a2a">
+
+<meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:description" content="{{ .Page.Description }}" />
+{{- end -}}
+
+{{- define "banner" -}}
+<h1>{{- .Title -}}</h1>
+<p>
+  {{ .PublishDate.Format "Jan 2, 2006" }}
+</p>
+{{- end -}}
+
+
+{{- define "content" -}}
+
+{{- if .Params.toc -}}
+<div id="toc">
+  <p class="title">Table of Contents</p>
+  {{ .TableOfContents }}
+</div>
+{{- end -}}
+
+<article>
+  {{- .Content -}}
+</article>
+
+<div id="meta-bar">
+  {{- if isset .Params "series" -}}
+  <span>{{ i18n "series" }}: </span>
+  <a href="/series/#{{ .Params.series }}">{{ .Params.series }}</a>
+  {{- end -}}
+
+  <div class="tags">
+    {{- if isset .Params "tags" -}}
+
+    <span>{{ i18n "tags" }}: </span>
+    {{- range $i, $e := .Params.tags -}}
+    {{- if $i -}}<span>/</span>{{- end -}}
+    <a href="/tags/{{- . -}}">{{- . -}}</a>
+    {{- end -}}
+
+    {{- end -}}
+  </div>
+</div>
+
+{{ partial "licence.html" . }}
+
+{{- end -}}
+
+{{- define "stylesheet" -}}
+{{- if isset .Params "math" -}}
+{{ partial "katex.html" . }}
+{{- end -}}
+{{- end }}
+
+{{- define "banner-image" -}}
+{{- if isset .Params "img" -}}
+<img id="banner-image" src='{{ .Params.img }}' alt="Banner Image">
+{{- end -}}
+{{- end -}}

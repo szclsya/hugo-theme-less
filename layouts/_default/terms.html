@@ -1,0 +1,47 @@
+{{ define "title" }}
+{{ .Title }} - {{ .Site.Title }}
+{{ end }}
+
+
+{{ define "banner" }}
+<h1>
+  {{ .Title }}
+</h1>
+{{ end }}
+
+{{ define "content" }}
+
+<div id="terms">
+  {{- $plural := .Data.Plural -}}
+  {{- range .Data.Terms.ByCount -}}
+  <section class="one-tag">
+    <div class="title-bar">
+      {{- if eq $plural "series" -}}
+      <img src="/icons/md-albums.svg">
+      {{- else -}}
+      <img src="/icons/md-pricetag.svg">
+      {{- end -}}
+      <span class="title">{{ .Term }}</span>
+      <span class="count">
+	{{ .Count }}
+	{{ i18n "posts-count" }}
+      </span>
+      <a class="button term-button" onclick="fold_me_in_terms(this)">
+	<span>-</span>
+      </a>
+    </div>
+
+    <div class="pages" id="{{ .Term }}">
+      {{- range .Pages -}}
+      <div class="page">
+	<span class="time">{{ .Date.Format "2006-01-02" }}</span>
+	<a href="{{ .Permalink }}">{{ .Title }}</a>
+      </div>
+      {{- end -}}
+    </div>
+
+  </section>
+  {{- end -}}
+</div>
+
+{{ end }}

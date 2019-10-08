@@ -1,0 +1,8 @@
+name = "Less"
+license = "MIT"
+licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
+min_version = "0.41"
+
+[author]
+  name = "Leo Shen"
+  homepage = "https://szclsya.me"

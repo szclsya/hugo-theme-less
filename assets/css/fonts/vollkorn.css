@@ -1,0 +1,109 @@
+@font-face{
+    font-family: 'Vollkorn';
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('/fonts/vollkorn/Vollkorn-Regular.woff2') format('woff2'),
+         url('/fonts/vollkorn/Vollkorn-Regular.woff') format('woff'),
+         url('/fonts/vollkorn/Vollkorn-Regular.otf') format('opentype'),
+         url('/fonts/vollkorn/Vollkorn-Regular.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Vollkorn';
+    font-weight: 500;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('/fonts/vollkorn/Vollkorn-Italic.woff2') format('woff2'),
+         url('/fonts/vollkorn/Vollkorn-Italic.woff') format('woff'),
+         url('/fonts/vollkorn/Vollkorn-Italic.otf') format('opentype'),
+         url('/fonts/vollkorn/Vollkorn-Italic.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Vollkorn';
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('/fonts/vollkorn/Vollkorn-SemiBold.woff2') format('woff2'),
+         url('/fonts/vollkorn/Vollkorn-SemiBold.woff') format('woff'),
+         url('/fonts/vollkorn/Vollkorn-SemiBold.otf') format('opentype'),
+         url('/fonts/vollkorn/Vollkorn-SemiBold.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Vollkorn';
+    font-weight: 600;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('/fonts/vollkorn/Vollkorn-SemiBoldItalic.woff2') format('woff2'),
+         url('/fonts/vollkorn/Vollkorn-SemiBoldItalic.woff') format('woff'),
+         url('/fonts/vollkorn/Vollkorn-SemiBoldItalic.otf') format('opentype'),
+         url('/fonts/vollkorn/Vollkorn-SemiBoldItalic.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Vollkorn';
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('/fonts/vollkorn/Vollkorn-Bold.woff2') format('woff2'),
+         url('/fonts/vollkorn/Vollkorn-Bold.woff') format('woff'),
+         url('/fonts/vollkorn/Vollkorn-Bold.otf') format('opentype'),
+         url('/fonts/vollkorn/Vollkorn-Bold.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Vollkorn';
+    font-weight: 700;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('/fonts/vollkorn/Vollkorn-BoldItalic.woff2') format('woff2'),
+         url('/fonts/vollkorn/Vollkorn-BoldItalic.woff') format('woff'),
+         url('/fonts/vollkorn/Vollkorn-BoldItalic.otf') format('opentype'),
+         url('/fonts/vollkorn/Vollkorn-BoldItalic.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Vollkorn';
+    font-weight: 800;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('/fonts/vollkorn/Vollkorn-ExtraBold.woff2') format('woff2'),
+         url('/fonts/vollkorn/Vollkorn-ExtraBold.woff') format('woff'),
+         url('/fonts/vollkorn/Vollkorn-ExtraBold.otf') format('opentype'),
+         url('/fonts/vollkorn/Vollkorn-ExtraBold.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Vollkorn';
+    font-weight: 800;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('/fonts/vollkorn/Vollkorn-ExtraBoldItalic.woff2') format('woff2'),
+         url('/fonts/vollkorn/Vollkorn-ExtraBoldItalic.woff') format('woff'),
+         url('/fonts/vollkorn/Vollkorn-ExtraBoldItalic.otf') format('opentype'),
+         url('/fonts/vollkorn/Vollkorn-ExtraBoldItalic.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Vollkorn';
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('/fonts/vollkorn/Vollkorn-Black.woff2') format('woff2'),
+         url('/fonts/vollkorn/Vollkorn-Black.woff') format('woff'),
+         url('/fonts/vollkorn/Vollkorn-Black.otf') format('opentype'),
+         url('/fonts/vollkorn/Vollkorn-Black.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Vollkorn';
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('/fonts/vollkorn/Vollkorn-BlackItalic.woff2') format('woff2'),
+         url('/fonts/vollkorn/Vollkorn-BlackItalic.woff') format('woff'),
+         url('/fonts/vollkorn/Vollkorn-BlackItalic.otf') format('opentype'),
+         url('/fonts/vollkorn/Vollkorn-BlackItalic.ttf') format('truetype');
+}
+

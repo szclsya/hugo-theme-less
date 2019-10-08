@@ -1,0 +1,52 @@
+.list-article
+  margin: 1.5rem 0
+  .title
+    display: flex
+    align-items: center
+    
+    font-size: 1.2rem
+    font-family: $serifFonts
+    text-decoration: none
+    
+  .description
+    margin: .4rem 0
+  .meta
+    font-size: .9rem
+    font-family: $monospaceFonts
+
+    color: map-get($colors, "meta")
+    @media (prefers-color-scheme: dark)
+      color: map-get($darks, "meta")
+
+    display: flex
+    align-items: center
+    & > *
+      margin-right: .3rem
+    .tag
+      display: flex
+      align-items: center
+      img
+        opacity: .5
+        @media (prefers-color-scheme: dark)
+          filter: invert(100%)
+        height: .8rem
+        width: .8rem
+
+.pagination-navigation
+  display: flex
+  justify-content: space-between
+  .navigate
+    text-decoration: none
+    background-color: #eceff1
+    padding: .1rem .3rem
+    transition: .2s
+    &:hover
+      background-color: #cfd8dc
+  .prev
+    a
+      border-left: 2px solid #cfd8dc
+  .next
+    a
+      border-right: 2px solid #cfd8dc
+  .pagination-page
+    margin: 0 .2rem

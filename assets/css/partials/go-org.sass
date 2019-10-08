@@ -1,0 +1,62 @@
+article
+  counter-reset: section
+  // use with toc
+  min-width: 5rem
+
+  h1, h2, h3
+    &:before
+      color: map-get($colors, "minor-info")
+      @media (prefers-color-scheme: dark)
+        color: map-get($darks, "minor-info")
+  h1
+    font-size: 1.3rem
+    counter-reset: subsection
+    &:before
+      counter-increment: section;
+      content: counter(section) ". ";
+  h2
+    font-size: 1.2rem
+    &:before
+      counter-increment: subsection;
+      content: counter(section) "." counter(subsection) " ";
+  p
+    //text-indent: 1rem
+
+.footnotes
+  margin: 2rem 0
+  hr
+    display: none
+  .footnote-body
+    display: inline
+  p
+    display: inline
+
+dl
+  dt
+    font-family: $serifFonts
+    font-weight: 800
+
+aside
+  max-width: 28rem
+  padding: 0 0.5rem
+  margin-top: 1rem
+  margin-bottom: 1rem
+  margin-right: 0
+  margin-left: auto
+
+  color: map-get($colors, "notes")
+  background-color: map-get($colors, "light-background")
+  @media (prefers-color-scheme: dark)
+    color: map-get($darks, "notes")
+    background-color: map-get($darks, "light-background")
+    border: 1px solid black
+    
+  font-size: 11pt
+  border-top: 1px solid #ccc
+  border-bottom: 1px solid #ccc
+  .btw-text
+    font-weight: 600
+    font-family: $serifFonts
+  .content
+    margin: 1rem
+    text-indent: 0

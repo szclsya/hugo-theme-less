@@ -1,0 +1,120 @@
+$pointSize : 17px !default
+$phoneWidth : 400px !default
+
+html
+  font-size: $pointSize
+  font-family: $sansSerifFonts
+  line-height: 1.5
+  text-rendering: optimizelegibility
+  text-size-adjust: none
+
+h1, h2, h3, h4, h5, h6
+  font-family: $serifFonts
+
+h1
+  font-weight: 700
+
+h2
+  font-weight: 600
+
+h3, h4, h5, h6
+  font-weight: 500
+
+h1
+  font-size: 1.8rem
+
+h2
+  font-size: 1.5rem
+
+h3
+  font-size: 1.17rem
+
+h4, h5, h6
+  font-size: 1rem
+
+a
+  color: map-get($colors, "link")
+  text-decoration-color: map-get($colors, "link-dec")
+  @media (prefers-color-scheme: dark)
+    color: map-get($darks, "link")
+    text-decoration-color: map-get($darks, "link-dec")
+
+  transition: text-decoration-color 0.2s
+  &:hover
+    text-decoration-color: #546e7a
+    @media (prefers-color-scheme: dark)
+      text-decoration-color: map-get($darks, "link")
+
+
+code
+  background-color: map-get($colors, "code")
+  border-bottom: 2px solid map-get($colors, "code-dec")
+  @media (prefers-color-scheme: dark)
+    background-color: map-get($darks, "code")
+    border-bottom: 2px solid map-get($darks, "code-dec")
+
+  font-family: $monospaceFonts
+  padding: .1rem .2rem
+
+p code
+  // Prevent from breaking up in the middle
+  white-space: nowrap
+
+.verbatim
+  background-color: map-get($colors, "verbatim")
+  @media (prefers-color-scheme: dark)
+    background-color: map-get($darks, "verbatim")
+  // border-bottom: 2px solid #ffe082
+  border-bottom: none
+
+// code block stuff
+.src
+  background-color: #1d1f21
+
+  margin: 1rem
+  // Overflow scroll
+  overflow-x: scroll
+  code
+    background-color: transparent
+    border-bottom: 0
+    padding: 0
+    // Don't know why but it breaks suddenly...
+    // It should be wrapped inside a pre tag, but it does not inhreit the style for some reasons
+    white-space: pre
+
+.linenos
+  min-width: 2rem
+  text-align: center
+  color: #969896
+  user-select: none
+
+blockquote
+  color: map-get($colors, "minor-info")
+  @media (prefers-color-scheme: dark)
+    color: map-get($darks, "minor-info")
+
+  margin: 1rem 0
+  padding: 0.2rem 2rem
+  border-left: 2px solid #616161
+
+  font-family: $serifFonts
+  font-size: 1.05rem
+  font-weight: 500
+  p
+    margin: 0
+
+ol, ul
+  p
+    margin: .2rem
+
+ul
+  list-style-type: square
+
+hr
+  border: 1px solid #eee
+  margin: 2.5rem 0
+
+del
+  color: map-get($colors, "minor-info")
+  @media (prefers-color-scheme: dark)
+    color: map-get($darks, "minor-info")

@@ -1,0 +1,18 @@
+series:
+  other: Series
+tags:
+  other: Tags
+tag:
+  other: Tag
+colon:
+  other: ':'
+posts:
+  other: 'Posts'
+about:
+  other: 'About'
+links:
+  other: 'Links'
+posts-count:
+  other: 'posts'
+footer-note:
+  other: 'This site is powered by Hugo.'

@@ -1,0 +1,16 @@
+series:
+  other: 系列
+tags:
+  other: 标签
+colon:
+  other: ':'
+posts:
+  other: '文章'
+about:
+  other: '关于'
+links:
+  other: '友链'
+posts-count:
+  other: '篇文章'
+footer-note:
+  other: '本站由 Hugo 强力驱动.'
