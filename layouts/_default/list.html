@@ -12,7 +12,7 @@
 <div class="list-article">
   <div class="title">
     {{- with .Params.series -}}
-    <a href="/series/{{ . }}" class="button">{{ . }}</a>
+    <a href="/series/#{{ . }}" class="button">{{ . }}</a>
     {{- end -}}
     <a href="{{.Permalink}}">{{.Title}}</a>
   </div>

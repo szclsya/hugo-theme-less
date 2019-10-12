@@ -14,14 +14,14 @@
 <div id="terms">
   {{- $plural := .Data.Plural -}}
   {{- range .Data.Terms.ByCount -}}
-  <section class="one-tag">
+  <section class="one-tag" id="{{ .Page.Title }}">
     <div class="title-bar">
       {{- if eq $plural "series" -}}
       <img src="/icons/md-albums.svg">
       {{- else -}}
       <img src="/icons/md-pricetag.svg">
       {{- end -}}
-      <span class="title">{{ .Term }}</span>
+      <span class="title">{{ .Page.Title }}</span>
       <span class="count">
 	{{ .Count }}
 	{{ i18n "posts-count" }}
