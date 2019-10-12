@@ -1,0 +1,13 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+
+<div class="card {{ .Get 0 }}">
+  {{ .Inner }}
+
+  {{- if eq (.Get 0) "danger" -}}
+  <img class="card-badge" src="/icons/md-nuclear.svg" alt="Danger!">
+  {{- else if eq (.Get 0) "warning" -}}
+  <img class="card-badge" src="/icons/md-warning.svg" alt="Warning">
+  {{- else if eq (.Get 0) "info" -}}
+  <img class="card-badge" src="/icons/md-information-circle.svg" alt="Info">
+  {{- end -}}
+</div>
