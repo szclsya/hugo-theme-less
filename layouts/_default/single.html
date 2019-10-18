@@ -46,7 +46,7 @@
     <span>{{ i18n "tags" }}: </span>
     {{- range $i, $e := .Params.tags -}}
     {{- if $i -}}<span>/</span>{{- end -}}
-    <a href="/tags/{{- . -}}">{{- . -}}</a>
+    <a href="/tags/#{{ . }}">{{- . -}}</a>
     {{- end -}}
 
     {{- end -}}
