@@ -8,6 +8,11 @@
 
 {{ define "header" }}
 <!-- Index page don't need back -->
+{{- if .IsTranslated -}}
+<a href="{{ (index .Translations 0).Permalink }}">
+  <img class="icon-white" src="/icons/translate-24px.svg" alt="Translate">
+</a>
+{{- end -}}
 {{ end }}
 
 {{ define "content" }}

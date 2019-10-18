@@ -37,19 +37,24 @@
       <a name="top" onclick="window.history.back()">
 	<img class="icon-white" src="/icons/md-arrow-back.svg" alt="Back">
       </a>
-      <a href="/">
+      <a href='{{ "/" | relLangURL }}'>
 	<img class="icon-white" src="/icons/md-home.svg" alt="Home">
       </a>
+      {{- if .IsTranslated -}}
+      <a href="{{ (index .Translations 0).Permalink }}">
+	<img class="icon-white" src="/icons/translate-24px.svg" alt="Translate">
+      </a>
       {{- end -}}
-      <a class="push" href="/posts">
+      {{- end -}}
+      <a class="push" href='{{ "posts/" | relLangURL }}'>
 	<img class="icon-white" src="/icons/md-bookmarks.svg" alt="Posts">
 	<span>{{ i18n "posts" }}</span>
       </a>
-      <a href="/about">
+      <a href='{{ "about/" | relLangURL }}'>
 	<img class="icon-white" src="/icons/md-information-circle.svg" alt="About">
 	<span>{{ i18n "about" }}</span>
       </a>
-      <a href="/links">
+      <a href='{{ "links/" | relLangURL }}'>
 	<img class="icon-white" src="/icons/md-link.svg" alt="Links">
 	<span>{{ i18n "links" }}</span>
       </a>
