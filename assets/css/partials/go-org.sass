@@ -3,18 +3,18 @@ article
   // use with toc
   min-width: 5rem
 
-  h1, h2, h3
+  h2, h3
     &:before
       color: map-get($colors, "minor-info")
       @media (prefers-color-scheme: dark)
         color: map-get($darks, "minor-info")
-  h1
+  h2
     font-size: 1.3rem
     counter-reset: subsection
     &:before
       counter-increment: section;
       content: counter(section) ". ";
-  h2
+  h3
     font-size: 1.2rem
     &:before
       counter-increment: subsection;
