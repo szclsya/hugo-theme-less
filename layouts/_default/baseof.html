@@ -77,9 +77,14 @@
 
       <footer>
 	{{- block "footer" . -}}
-	<p>
+	<span>
 	  {{ i18n "footer-note" }}
-	</p>
+	</span>
+	<div style="display: inline-block">
+	  <a href='{{ "index.xml" | relLangURL }}'>
+		<img class="icon" src="/icons/rss.svg" alt="RSS Feed">
+	  </a>
+	</div>
 	{{- end -}}
       </footer>
     </div>
