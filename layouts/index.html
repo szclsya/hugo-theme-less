@@ -3,7 +3,23 @@
 
 {{ define "banner" }}
 <h1>{{ .Site.Title }}</h1>
-<h2>{{ .Site.Params.Description }}</h2>
+<h2 id="banner-description" class="blur">{{ .Site.Params.Description }}</h2>
+<script>
+  let des = document.getElementById("banner-description");
+  des.style.cssText="filter: blur(.5rem)";
+  let sloganURL = "/slogan.json"
+  fetch(sloganURL)
+    .then(res => res.json())
+    .then((out) => {
+      des.style.cssText="";
+      if (Math.random() < 0.9) {
+        des.innerText = shuffle(out["common"])[0];
+      } else {
+        des.innerText = shuffle(out["rare"])[0];
+      }
+    })
+    .catch(err => {throw err})
+</script>
 {{ end }}
 
 {{ define "header" }}
