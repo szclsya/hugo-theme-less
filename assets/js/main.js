@@ -62,3 +62,36 @@ function shuffle(a) {
     }
     return a;
 }
+
+// Update btws' vertical locations, since generated locations are not very accurate
+function update_btw_tops() {
+	let left_items = document.getElementsByClassName('side-item');
+	let items = document.getElementsByClassName('vertical-right')[0].getElementsByClassName('item-on-the-right');
+	let toc = document.getElementById('toc');
+	let init_height = 0;
+	if (toc != undefined) {
+		init_height = toc.offsetTop + toc.offsetHeight;
+	}
+
+	// First get a list of heights
+	let btw_offset_top = [];
+	for (let item of left_items) {
+		btw_offset_top.push(item.offsetTop);
+	}
+
+	let i = 0;
+	for (let btw of items) {
+		console.log('init_height: ' + init_height);
+		if (init_height >= btw_offset_top[i]) {
+			btw.style.top = (init_height + 10) + 'px';
+			console.log('init_height >= btw offset');
+		} else {
+			btw.style.top = btw_offset_top[i] + 'px';
+		}
+
+		init_height = btw.offsetTop+ btw.offsetHeight;
+		i++;
+	}
+}
+
+update_btw_tops();

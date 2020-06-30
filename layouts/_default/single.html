@@ -22,23 +22,49 @@
 
 
 {{- define "content" -}}
-
-{{- if .Params.toc -}}
-<div id="toc">
-  <p class="title">Table of Contents</p>
-  {{ .TableOfContents }}
+<div class="vertical-left">
+  <article>
+	{{- .Content -}}
+  </article>
 </div>
-{{- end -}}
 
-<article>
-  {{- .Content -}}
-</article>
-
-<div id="meta-bar">
-  {{- if isset .Params "series" -}}
-  <span>{{ i18n "series" }}: </span>
-  <a href="/series/#{{ .Params.series }}">{{ .Params.series }}</a>
+<div class="vertical-right">
+  {{- if .Params.toc -}}
+  <div id="toc">
+	<p class="title">Table of Contents</p>
+	{{ .TableOfContents }}
+  </div>
   {{- end -}}
+
+  {{ $charCount := len $.RawContent }}
+  {{- range .Scratch.Get "side-items" -}}
+  <div class="item-on-the-right" style="position: absolute; top: {{ mul 100 (div (index . 2) (mul 1.1 $charCount)) }}%">
+	{{- if eq "btw" (index . 0) -}}
+	<span class="btw-text">By the way: </span>
+	<p>{{ index . 1 | safeHTML }}</p>
+	{{- else if eq "card-info" (index . 0) -}}
+	<div class="card-info">
+	  {{ index . 1 | safeHTML }}
+	</div>
+	{{- else if eq "card-danger" (index . 0) -}}
+	<div class="card-danger">
+	  {{ index . 1 | safeHTML }}
+	</div>
+	{{- else if eq "card-warning" (index . 0) -}}
+	<div class="card-warning">
+	  {{ index . 1 | safeHTML }}
+	</div>
+	{{- end -}}
+  </div>
+  {{- end -}}
+
+	<div style="margin-top: auto">
+	  {{ partial "licence.html" . }}
+	</div>
+	{{- if isset .Params "series" -}}
+	<span>{{ i18n "series" }}: </span>
+	<a href="/series/#{{ .Params.series }}">{{ .Params.series }}</a>
+	{{- end -}}
 
   <div class="tags">
     {{- if isset .Params "tags" -}}
@@ -52,8 +78,6 @@
     {{- end -}}
   </div>
 </div>
-
-{{ partial "licence.html" . }}
 
 {{- end -}}
 

@@ -74,24 +74,22 @@
     </div>
 
     <div id="content-container">
-      <main>
 	{{- block "content" . -}}
 	{{- end -}}
-      </main>
-
-      <footer>
-	{{- block "footer" . -}}
-	<span>
-	  {{ i18n "footer-note" }}
-	</span>
-	<div style="display: inline-block">
-	  <a href='{{ "index.xml" | relLangURL }}'>
-		<img class="icon" src="/icons/rss.svg" alt="RSS Feed">
-	  </a>
-	</div>
-	{{- end -}}
-      </footer>
     </div>
+
+    <footer>
+	  {{- block "footer" . -}}
+	  <span>
+		{{ i18n "footer-note" }}
+	  </span>
+	  <div style="display: inline-block">
+		<a href='{{ "index.xml" | relLangURL }}'>
+		  <img class="icon" src="/icons/rss.svg" alt="RSS Feed">
+		</a>
+	  </div>
+	  {{- end -}}
+    </footer>
 
     <div id="action-botton">
       <div class="action-wrapper">

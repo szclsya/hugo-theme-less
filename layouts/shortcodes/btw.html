@@ -1,6 +1,7 @@
 {{ $_hugo_config := `{ "version": 1 }` }}
 
-<aside>
+{{- .Page.Scratch.Add "side-items" (slice (slice "btw" ( .Inner | safeHTML ) .Position.Offset)) -}}
+<aside class="side-item">
   <div class="content">
   <span class="btw-text">By the way:</span>
    {{ .Inner }}

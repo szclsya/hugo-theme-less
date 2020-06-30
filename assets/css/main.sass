@@ -89,11 +89,20 @@ header
     -webkit-user-drag: none
 
 #content-container
-  max-width: 45 * $pointSize
+  display: flex
+  max-width: 72* $pointSize
   margin: 0 auto
   padding: 1rem
   @media screen and (max-width: $phoneWidth)
     padding: 1rem
+  .vertical-left
+    max-width: 50 * $pointSize
+  .vertical-right
+    position: relative
+    padding: 1rem 0
+    margin-left: 1 * $pointSize
+    max-width: 20 * $pointSize
+    min-width: 15 * $pointSize
 
 footer
   color: map-get($colors, "minor-info")
@@ -175,5 +184,6 @@ footer
 @import "partials/terms.sass"
 @import "partials/components.sass" 
 @import "partials/misc.sass"
+@import "partials/aside-items.sass"
 
 @import "tomorrow_night"
