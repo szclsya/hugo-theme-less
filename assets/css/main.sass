@@ -5,7 +5,7 @@ $serifFonts : 'Vollkorn', 'Noto Serif CJK SC', 'Songti SC', 'Microsoft YaHei', s
 $monospaceFonts : 'Iosevka Type', 'Microsoft YaHei', monospace
 
 $colors: ("background": white, "text": black, "verbatim": #fffde7, "link": #546e7a, "link-dec": #eceff1, "meta": #757575, "minor-info": #616161, "code": #eceff1, "code-dec": #cfd8dc, "notes": #424242, "light-background": #f5f5f5)
-$darks: ("background": black, "text": white, "verbatim": #2c3e50, "link": #b3e5fc, "link-dec": #37474f, "meta": #bdbdbd, "minor-info": #bdbdbd, "code": #263238, "code-dec": #37474f, "notes": #f5f5f5, "light-background": #212121)
+$darks: ("background": #11100f, "text": #faf9f8, "verbatim": #2c3e50, "link": #b3e5fc, "link-dec": #37474f, "meta": #bdbdbd, "minor-info": #bdbdbd, "code": #263238, "code-dec": #37474f, "notes": #f5f5f5, "light-background": #212121)
 
 html
   scroll-behavior: smooth
@@ -95,8 +95,15 @@ header
   padding: 1rem
   @media screen and (max-width: $phoneWidth)
     padding: 1rem
+  .single-column
+    width: 100%
+    max-width: 50 * $pointSize
+    margin: 0 auto
   .vertical-left
     max-width: 50 * $pointSize
+    // Stay at center if screen is not wide enough
+    @media screen and (max-width: 65 * $pointSize)
+      margin: 0 auto
   .vertical-right
     position: relative
     padding: 1rem 0
@@ -178,12 +185,13 @@ footer
     margin-left: auto
 
 
+
+@import "partials/general.sass"
 @import "partials/typography.sass"
-@import "partials/go-org.sass"
+@import "partials/article.sass"
 @import "partials/list.sass"
-@import "partials/terms.sass"
-@import "partials/components.sass" 
-@import "partials/misc.sass"
 @import "partials/aside-items.sass"
+@import "partials/terms.sass"
+@import "partials/misc.sass"
 
 @import "tomorrow_night"

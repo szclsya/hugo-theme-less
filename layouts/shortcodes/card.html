@@ -1,18 +1,21 @@
 {{ $_hugo_config := `{ "version": 1 }` }}
 
 <div class="card {{ .Get 0 }} side-item">
-  <div class="card-content">
-	{{ .Inner }}
-  </div>
+  <div class="narrow-screen-only">
+	
+	<div class="card-content">
+	  {{ .Inner }}
+	</div>
 
-  {{- if eq (.Get 0) "danger" -}}
-  {{- .Page.Scratch.Add "side-items" (slice (slice "card-danger" (.Inner | safeHTML) .Position.Offset)) -}}
-  <img class="card-badge" src="/icons/md-nuclear.svg" alt="Danger!">
-  {{- else if eq (.Get 0) "warning" -}}
-  {{- .Page.Scratch.Add "side-items" (slice (slice "card-warning" (.Inner | safeHTML) .Position.Offset)) -}}
-  <img class="card-badge" src="/icons/md-warning.svg" alt="Warning">
-  {{- else if eq (.Get 0) "info" -}}
-  {{- .Page.Scratch.Add "side-items" (slice (slice "card-info" (.Inner | safeHTML) .Position.Offset)) -}}
-  <img class="card-badge" src="/icons/md-information-circle.svg" alt="Info">
-  {{- end -}}
+	{{- if eq (.Get 0) "danger" -}}
+	{{- .Page.Scratch.Add "side-items" (slice (slice "card-danger" (.Inner | safeHTML) .Position.Offset)) -}}
+	<img class="card-badge" src="/icons/md-nuclear.svg" alt="Danger!">
+	{{- else if eq (.Get 0) "warning" -}}
+	{{- .Page.Scratch.Add "side-items" (slice (slice "card-warning" (.Inner | safeHTML) .Position.Offset)) -}}
+	<img class="card-badge" src="/icons/md-warning.svg" alt="Warning">
+	{{- else if eq (.Get 0) "info" -}}
+	{{- .Page.Scratch.Add "side-items" (slice (slice "card-info" (.Inner | safeHTML) .Position.Offset)) -}}
+	<img class="card-badge" src="/icons/md-information-circle.svg" alt="Info">
+	{{- end -}}
+  </div>
 </div>

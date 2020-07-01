@@ -8,52 +8,53 @@
 
 {{ define "content" }}
 
-{{ range .Paginator.Pages }}
-<div class="list-article">
-  <div class="title">
-    {{- with .Params.series -}}
-    <a href="/series/#{{ . }}" class="button">{{ . }}</a>
-    {{- end -}}
-    <a href="{{.Permalink}}">{{.Title}}</a>
+<div class="single-column">
+  {{ range .Paginator.Pages }}
+  <div class="list-article">
+	<div class="title">
+      {{- with .Params.series -}}
+      <a href="/series/#{{ . }}" class="button">{{ . }}</a>
+      {{- end -}}
+      <a href="{{.Permalink}}">{{.Title}}</a>
+	</div>
+	<p class="description">{{ .Description }}</p>
+	<div class="meta">
+      <span>{{ .Date.Format "2006/1/2" }}</span>
+      {{- range .Params.tags -}}
+      <a href="/tags/#{{ . }}" class="tag">
+		<img src="/icons/md-pricetag.svg">
+		<span>{{ . }}</span>
+      </a>
+      {{- end -}}
+	</div>
   </div>
-  <p class="description">{{ .Description }}</p>
-  <div class="meta">
-    <span>{{ .Date.Format "2006/1/2" }}</span>
-    {{- range .Params.tags -}}
-    <a href="/tags/#{{ . }}" class="tag">
-      <img src="/icons/md-pricetag.svg">
-      <span>{{ . }}</span>
-    </a>
-    {{- end -}}
+  {{ end }}
+
+  {{- with .Paginator -}}
+  <div class="pagination-navigation">
+	<div class="prev">
+      {{- if .HasPrev -}}
+      <a class="navigate" href="{{ .Prev.URL }}">Prev</a>
+      {{- end -}}
+	</div>
+	<div class="page-numbers">
+      {{- $current := .PageNumber -}}
+      {{- range .Pagers }}
+
+      {{- if eq $current .PageNumber -}}
+      <span class="pagination-page" style="color: #616161">{{ .PageNumber }}</span>
+      {{- else -}}
+      <a class="pagination-page" href="{{ .URL }}">{{ .PageNumber }}</a>
+      {{- end -}}
+
+      {{- end -}}
+	</div>
+	<div class="next">
+      {{- if .HasNext -}}
+      <a class="navigate" href="{{ .Next.URL }}">Next</a>
+      {{- end -}}
+	</div>
   </div>
+  {{- end -}}
 </div>
-{{ end }}
-
-{{- with .Paginator -}}
-<div class="pagination-navigation">
-  <div class="prev">
-    {{- if .HasPrev -}}
-    <a class="navigate" href="{{ .Prev.URL }}">Prev</a>
-    {{- end -}}
-  </div>
-  <div class="page-numbers">
-    {{- $current := .PageNumber -}}
-    {{- range .Pagers }}
-
-    {{- if eq $current .PageNumber -}}
-    <span class="pagination-page" style="color: #616161">{{ .PageNumber }}</span>
-    {{- else -}}
-    <a class="pagination-page" href="{{ .URL }}">{{ .PageNumber }}</a>
-    {{- end -}}
-
-    {{- end -}}
-  </div>
-  <div class="next">
-    {{- if .HasNext -}}
-    <a class="navigate" href="{{ .Next.URL }}">Next</a>
-    {{- end -}}
-  </div>
-</div>
-{{- end -}}
-
 {{ end }}

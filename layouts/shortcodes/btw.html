@@ -2,7 +2,7 @@
 
 {{- .Page.Scratch.Add "side-items" (slice (slice "btw" ( .Inner | safeHTML ) .Position.Offset)) -}}
 <aside class="side-item">
-  <div class="content">
+  <div class="content narrow-screen-only">
   <span class="btw-text">By the way:</span>
    {{ .Inner }}
   </div>

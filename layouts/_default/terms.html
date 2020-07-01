@@ -10,38 +10,39 @@
 {{ end }}
 
 {{ define "content" }}
-
-<div id="terms">
-  {{- $plural := .Data.Plural -}}
-  {{- range .Data.Terms.ByCount -}}
-  <section class="one-tag" id="{{ .Page.Title }}">
-    <div class="title-bar">
-      {{- if eq $plural "series" -}}
-      <img src="/icons/md-albums.svg">
-      {{- else -}}
-      <img src="/icons/md-pricetag.svg">
-      {{- end -}}
-      <span class="title">{{ .Page.Title }}</span>
-      <span class="count">
-	{{ .Count }}
-	{{ i18n "posts-count" }}
-      </span>
-      <a class="button term-button" onclick="fold_me_in_terms(this)">
-	<span>-</span>
-      </a>
-    </div>
-
-    <div class="pages" id="{{ .Term }}">
-      {{- range .Pages -}}
-      <div class="page">
-	<span class="time">{{ .Date.Format "2006-01-02" }}</span>
-	<a href="{{ .Permalink }}">{{ .Title }}</a>
+<div class="single-column">
+  <div id="terms">
+	{{- $plural := .Data.Plural -}}
+	{{- range .Data.Terms.ByCount -}}
+	<section class="one-tag" id="{{ .Page.Title }}">
+      <div class="title-bar">
+		{{- if eq $plural "series" -}}
+		<img src="/icons/md-albums.svg">
+		{{- else -}}
+		<img src="/icons/md-pricetag.svg">
+		{{- end -}}
+		<span class="title">{{ .Page.Title }}</span>
+		<span class="count">
+		  {{ .Count }}
+		  {{ i18n "posts-count" }}
+		</span>
+		<a class="button term-button" onclick="fold_me_in_terms(this)">
+		  <span>-</span>
+		</a>
       </div>
-      {{- end -}}
-    </div>
 
-  </section>
-  {{- end -}}
+      <div class="pages" id="{{ .Term }}">
+		{{- range .Pages -}}
+		<div class="page">
+		  <span class="time">{{ .Date.Format "2006-01-02" }}</span>
+		  <a href="{{ .Permalink }}">{{ .Title }}</a>
+		</div>
+		{{- end -}}
+      </div>
+
+	</section>
+	{{- end -}}
+  </div>
 </div>
 
 {{ end }}

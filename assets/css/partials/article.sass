@@ -1,0 +1,148 @@
+article
+  position: relative
+  counter-reset: section
+  // use with toc
+  min-width: 5rem
+
+  h2, h3
+    &:before
+      color: map-get($colors, "minor-info")
+      @media (prefers-color-scheme: dark)
+        color: map-get($darks, "minor-info")
+  h2
+    font-size: 1.3rem
+    counter-reset: subsection
+    &:before
+      counter-increment: section;
+      content: counter(section) ". ";
+  h3
+    font-size: 1.2rem
+    &:before
+      counter-increment: subsection;
+      content: counter(section) "." counter(subsection) " ";
+  p
+    //text-indent: 1rem
+
+.footnotes
+  margin: 2rem 0 0 0 
+  hr
+    display: none
+  .footnote-body
+    display: inline
+  p
+    display: inline
+
+dl
+  dt
+    font-family: $serifFonts
+    font-weight: 800
+
+aside
+  max-width: 28rem
+  padding: 0 0.5rem
+  margin-top: 1.5rem
+  margin-bottom: 1.5rem
+  margin-right: 0
+  margin-left: auto
+  color: #3b3a39
+  @media (prefers-color-scheme: dark)
+    color: #d2d0ce
+  p
+    display: inline
+
+  // Stay hidden if right bar exists
+  .content
+    @media screen and (min-width: 65 * $pointSize)
+      display: none
+    
+
+.license
+  background-color: map-get($colors, "light-background")
+  @media (prefers-color-scheme: dark)
+    background-color: map-get($darks, "light-background")
+
+  text-align: center
+  font-size: .9rem
+  padding: 1.5rem
+
+figure
+  width: 100%
+  margin: .5rem 0
+  @media screen and (max-width: 920px)
+    max-width: 100%
+    margin: 0
+    left: 0
+  img
+    max-width: 100%
+    margin: 0 auto
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2)
+  figcaption
+    text-align: center
+    color: map-get($colors, "meta")
+    @media (prefers-color-scheme: dark)
+      color: map-get($darks, "meta")
+    font-size: .8rem
+    margin-top: .2rem
+
+#toc
+  background-color: map-get($colors, "light-background")
+  border-top: 1px solid #ccc
+  border-bottom: 1px solid #ccc
+  @media (prefers-color-scheme: dark)
+    background-color: map-get($darks, "light-background")
+    border: none
+
+  float: right
+  width: 20rem
+  max-width: 100%
+  @media screen and (max-width: 650px)
+    width: 100%
+  .title
+    text-align: center
+    font-family: $serifFonts
+    font-weight: 600
+    margin: 1rem 0 0 0
+  ul
+    list-style-type: decimal
+    font-size: .9rem
+
+.card
+  width: 100%
+  position: relative
+  margin: 0 auto
+
+  overflow: hidden
+  .card-badge
+    position: absolute
+    right: -1rem
+    bottom: -.8rem
+    width: 4rem
+    opacity: 0.4
+    fill: grey
+    user-select: none
+  .card-content
+    margin: .5rem 1.2rem
+  p
+    margin: 0
+
+.card.danger
+  border-left: 2pt solid #d83b01
+  color: #d83b01
+  font-weight: 500
+  //background-color: #f8d7da
+  //color: #721c24
+
+.card.warning
+  border-left: 2pt solid #ffb900
+  color: #ffb900
+  font-weight: 500
+  //background-color: #fff3cd
+  //color: #856404
+
+.card.info
+  border-left: 2pt solid #0078d4
+  color: #0078d4
+  font-weight: 500
+  //background-color: #d1ecf1
+  //color: #0c5460
+
